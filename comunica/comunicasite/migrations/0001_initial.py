@@ -18,7 +18,6 @@ class Migration(migrations.Migration):
                 ('nome', models.CharField(max_length=20)),
                 ('comentario', models.TextField()),
                 ('publicado', models.DateTimeField(auto_now_add=True)),
-                ('ativo', models.BooleanField(default=False)),
             ],
         ),
     ]

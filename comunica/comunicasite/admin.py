@@ -1,7 +1,18 @@
 from django.contrib import admin
+from .models import Comentario
 
-# Register your models here.
+class ComentarioAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'comentario', 'publicado')
+    actions = ['aprovar_comentarios']
+    actions = ['aprovar_comentarios']
 
-from . import models
+    def aprovar_comentarios(self, request, queryset):
+        queryset.update(aprovado=True)
+    aprovar_comentarios.short_description = 'Aprovar os comentários selecionados'
 
-admin.site.register(models.Comentario)
+admin.site.register(Comentario, ComentarioAdmin)
+
+
+    
+
+

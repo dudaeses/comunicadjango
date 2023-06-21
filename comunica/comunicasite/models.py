@@ -3,15 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Comentario(models.Model):
-    nome = models.CharField(max_length=20)
-    comentario = models.TextField()
-    publicado = models.DateTimeField(auto_now_add=True)
-    ativo = models.BooleanField(default=False)
+    nome = models.CharField('nome', max_length=20)
+    comentario = models.TextField('comentario')
+    publicado = models.DateTimeField('data', auto_now_add=True)
 
-class Meta:
-    ordering = ['publicado']
-
-def __str__(self):
-    return 'Comment {} by {}'.format(self.body, self.nome)
+    def __str__(self):
+        return f"{self.nome} - {self.publicado}"
 
 

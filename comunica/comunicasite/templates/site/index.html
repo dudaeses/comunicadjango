@@ -39,7 +39,7 @@
           <section id="forms" style="margin-top: 2rem;">
             <div class="container" id="#scrollspyHeading2">
               <h2>Escreva um comentário:</h2>
-                <form method="post" action="/comentarios"> 
+              <form method="post" action="{% url 'comentarios' %}">
                     {% csrf_token %}
                     {% for form_field in form %}
                     <div class="form-group">
@@ -51,6 +51,14 @@
                     
                     <input class="btn btn-primary" style="margin-bottom: 3rem;" type="submit" value="Enviar">
                 </form>
+
+                {% if messages %}
+                  <ul class="messages">
+                      {% for message in messages %}
+                          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+                {% endif %}
                
                 <h2>Comentários:</h2>
                 <div class="card" style="width: 80;">

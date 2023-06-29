@@ -11,7 +11,7 @@ def index(request):
     if request.method == 'POST':
         form = ComentarioForm(request.POST)
         if form.is_valid():
-            # form.salvar()
+            form.save()
             return redirect('comentarios')
     else:
         form = ComentarioForm()
@@ -32,11 +32,13 @@ def comentarios(request):
     if request.method == 'POST':
         form = ComentarioForm(request.POST)
         if form.is_valid():
-            comentario = Comentario
+            comentario = form.save(commit=False)
+            comentario.status = 'pendente'
+            comentario.save()
 
-            # messages.success(request, 'Comentário enviado com sucesso! Aguardando aprovação.')
+            messages.success(request, 'Comentário enviado com sucesso! Aguardando aprovação.')
 
-            # return redirect('comentarios')
+            return redirect('comentarios')
 
     else:
         form = ComentarioForm()

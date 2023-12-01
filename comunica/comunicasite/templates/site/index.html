@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,33 +12,20 @@
 
     <title>COMUNICA</title>
   </head>
-  <body>
-    <header>
-        <nav id="navbar-exemplo2" class="navbar" style="background-color: #0D3D61;">
-            <a class="navbar-brand" href="comunicasite/index.html"></a>
-            <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link-light" style="color: white;" href="#scrollspyHeading1">SOBRE NÓS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link-light" style="color: white; margin-left: 2rem;" href="#scrollspyHeading2">COMENTÁRIOS</a>
-            </li>
-        </nav>
-    </header>
 
+  <body style="background-color: #0D3D61;">
+    <img src="{% static 'img/banner.png' %}" class="img-fluid" alt="comunica">
     <main>
-        <div data-spy="scroll" data-target="#navbar-exemplo2" data-offset="0">
-          <section id="introducao" style="margin-top: 2rem;">
-            <div class="container" id="#scrollspyHeading1" style="text-align: justify;">
+          <section id="introducao" style="margin-top: 2rem; color:white;">
+            <div class="container"style="text-align: justify;">
             <h1>Conheça o COMUNICA</h1>
                 <p>O projeto iniciou-se com a ideia de melhorar a comunicação entre os cidadãos e a Prefeitura de Itapira, no interior do estado de São Paulo, e assim, resolver problemas da cidade. A melhor solução abordada foi a criação de um aplicativo de comunicação direta com os agentes da prefeitura, onde os moradores do município podem denunciar os problemas locais, como por exemplo, buracos na rua, reparos de locais públicos, entre outros. São obstáculos que persistem de forma negativa na vida dos habitantes e precisam ser resolvidos. </p>
                 <p>Por meio do aplicativo, os usuários poderão relatar os problemas através de postagens com texto, imagens e vídeos descrevendo o obstáculo; e poderão votar nas postagens, de forma positiva ou negativa, de outros usuários. As postagens serão organizadas na página inicial do aplicativo pelo sistema de votos como um ranking, portanto, as postagens com mais votos positivos ganharão prioridade no carregamento da tela inicial e aparecerão no topo da lista com maior visibilidade, enquanto as postagens com mais votos negativos vão sendo rebaixadas e vão perdendo a visibilidade. Desta forma, as reclamações vão sendo direcionadas assertivamente para a prefeitura pelo seu grau de relevância que é determinado pelos próprios usuários por meio do aplicativo.</p>
                 <p>Os agentes da prefeitura também poderão realizar postagens, a fim de responder os habitantes e informá-los de novas atualizações.</p>
               </section>
         </div>
-        <div data-spy="scroll" data-target="#navbar-exemplo2" data-offset="0">
-          <section id="forms" style="margin-top: 2rem;">
-            <div class="container" id="#scrollspyHeading2">
+          <section id="forms" style="margin-top: 2rem; color:white;">
+            <div class="container">
               <h2>Escreva um comentário:</h2>
               <form method="post" action="{% url 'comentarios' %}">
                     {% csrf_token %}
@@ -62,7 +50,7 @@
                
                 <h2>Comentários:</h2>
                 <div class="card" style="width: 80;">
-                  <div class="card-body">
+                  <div class="card-body" style="color:black">
                     {% for comentario in comentarios.all %}
                       <h5 class="card-title">{{ comentario.nome }}</h5>
                       <h6 class="card-subtitle mb-2 text-muted">{{ comentario.publicado }}</h6>

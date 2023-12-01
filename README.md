@@ -1,4 +1,4 @@
-# COMUNICA TCC
+# COMUNICA
 - Leonardo de Paiva Junior
 - Maria Eduarda Carvalho de Meneses
 - Pedro Piva Soares Ribeiro
